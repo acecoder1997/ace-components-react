@@ -1,10 +1,23 @@
 import React from 'react';
-import {Button} from './components'
+import {Button, Alert, Menu, MenuItem, SubMenu} from './components'
 import {ButtonSize, ButtonType} from "./components/Button/button";
 
 function App() {
     return (
         <div className="App">
+            <Menu defaultIndex={2} onSelect={(index) => console.log(index)}>
+                <MenuItem index={1} disabled={true}>item 1</MenuItem>
+                <MenuItem index={2}>item 2</MenuItem>
+                <SubMenu title='SubMenu item 3'>
+                    <MenuItem>SubMenu item 1</MenuItem>
+                    <MenuItem>SubMenu item 2</MenuItem>
+                    <MenuItem>SubMenu item 3</MenuItem>
+                </SubMenu>
+            </Menu>
+            <Alert message='hello world!'/>
+            <Alert type='success' message='hello world!'/>
+            <Alert type='warning' message='hello world!'/>
+            <Alert type='error' message='hello world!'/>
             <Button autoFocus btnType={ButtonType.Link} onClick={() => alert('click')}>default</Button>
             <Button disabled>disabled</Button>
             <Button btnType={ButtonType.Danger}>Danger</Button>
@@ -29,6 +42,13 @@ function App() {
             >
                 Learn React
             </a>
+
+            <div className='code-parent' style={{position: "relative",backgroundColor:'#333',padding:'10px 30px'}}>
+                <code> position: relative;</code>
+                <div className='code-children' style={{position: "absolute",top:'calc(100% + 4px)',border:'2px solid red',backgroundColor:'#333',padding:'10px 30px'}}>
+                    <code> position: absolute;</code>
+                </div>
+            </div>
         </div>
     );
 }

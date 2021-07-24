@@ -1,0 +1,36 @@
+@mixin alert-style(
+  $background,
+  $color
+) {
+  color: $color;
+  background: lighten($background, 45%);
+  border-color: $background;
+}
+
+.ace-alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: 16px;
+  border-radius: $border-radius;
+  background-color: $info;
+  color: $black;
+  border: $border-width solid $info;
+}
+
+.ace-alert-info {
+  @include alert-style($info, $black)
+}
+
+.ace-alert-success {
+  @include alert-style($success, $black)
+}
+
+.ace-alert-warning {
+  @include alert-style($warning, $black)
+}
+
+.ace-alert-error {
+  @include alert-style($danger, $black)
+}
+
+
